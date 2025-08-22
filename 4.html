@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up Form</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: url('background.jpg') no-repeat center center/cover;
+      min-height: 100vh;
+    }
+    /* Header with Navigation */
+    header {
+      background-color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      border-radius: 0 0 10px 10px;
+      margin-bottom: 30px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    nav ul li {
+      margin-left: 20px;
+    }
+    nav ul li:first-child {
+      margin-left: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1em;
+    }
+    nav a:hover {
+      color: #388e3c;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #388e3c;
+    }
+    .signup-container {
+      background-color: #f0fff8;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      text-align: center;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
+    }
+    .signup-container:hover {
+      transform: scale(1.02);
+    }
+    .google-btn {
+      background-color: #eaf4ee;
+      color: #333;
+      border: 1px solid #ccc;
+      padding: 12px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 15px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .google-btn img {
+      width: 18px;
+      height: 18px;
+    }
+    .google-btn:hover {
+      background-color: #d1e7dd;
+      transform: scale(1.05);
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      color: #888;
+      font-size: 14px;
+    }
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: #ccc;
+      margin: 0 10px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #f9f9f9;
+      outline: none;
+      transition: border-color 0.3s, background-color 0.3s;
+    }
+    input:focus {
+      border-color: #0b4f29;
+      box-shadow: 0 0 5px rgba(11, 79, 41, 0.3);
+    }
+    input:hover {
+      background-color: #e8f5e9;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+    .signup-btn {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+    .signup-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="1.html">Home</a></li>
+        <li><a href="2.html">News Section</a></li>
+        <li><a href="3.html">How It Works</a></li>
+      </ul>
+    </nav>
+    <div class="logo">NewsTailor</div>
+    <nav>
+      <ul>
+        <li><a href="4.html">Sign-Up</a></li>
+        <li><a href="5.html">Community</a></li>
+        <li><a href="6.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="signup-container">
+    <h2 style="margin-bottom: 10px;">Sign Up Now</h2>
+    <p>Join the News Revolution!</p>
+    <div class="google-btn">
+      <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google Logo" />
+      Continue with Google
+    </div>
+    <div class="divider">or</div>
+    <input type="email" id="email" placeholder="Enter your email" required />
+    <div class="error" id="emailError">Please enter a valid email.</div>
+    <input type="password" id="password" placeholder="Choose a password" required />
+    <div class="error" id="passwordError">Password must be at least 6 characters.</div>
+    <button class="signup-btn" onclick="validateForm()">Sign Up</button>
+  </div>
+  <script>
+    function validateForm() {
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      let emailError = document.getElementById("emailError");
+      let passwordError = document.getElementById("passwordError");
+      let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      emailError.style.display = emailPattern.test(email) ? "none" : "block";
+      passwordError.style.display = password.length >= 6 ? "none" : "block";
+      
+      if (emailPattern.test(email) && password.length >= 6) {
+        alert("Sign-up successful!");
+      }
+    }
+  </script>
+</body>
+</html>
